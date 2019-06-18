@@ -118,7 +118,7 @@ def FittingContinuousDistance(which_curve_points):
 def FittingCurvedLinesLength(which_layer,img_rgb):
     
     #暴力增加角点
-    map_corner_points=Cor.AddCorners(which_layer.edge,4,img_rgb,True)   
+    map_corner_points=Cor.AddCorners(which_layer,4,img_rgb,True)   
     
     #初始化which_layer的角点
     which_layer.corners=list(map_corner_points.values())
@@ -635,7 +635,8 @@ def LengthRecover(total_fractions,
                 
             #    print('plus',j)
                 
-                if that_point not in fault_left.content and that_point not in fault_right.content:
+                '''要在两个断层之间最大高度之内'''
+                if that_point not in fault_left.content+fault_right.content:
                     
                     that_points_to_draw.append(that_point)
                     

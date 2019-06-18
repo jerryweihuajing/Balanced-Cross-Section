@@ -373,7 +373,7 @@ def PickFault(total_fractions,
 def PickLayer(total_fractions,
               img_rgb=None,
               show=False,
-              axis=True):
+              axis=False):
     
     print('')
     print('here comes a new layer')

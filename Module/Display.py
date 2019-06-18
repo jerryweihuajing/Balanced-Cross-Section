@@ -84,7 +84,7 @@ def ShowOnePoint(pos,img_rgb,length_of_side=3):
     
     plt.imshow(img_rgb) 
     
-    axis=True
+    axis=False
     
     #是否显示坐标轴
     if not axis:
@@ -116,16 +116,13 @@ def Line2Red(which_content,img_rgb):
 def ShowFractions(fractions,
                   img_rgb,
                   rgb_dict,
-                  axis=True,
+                  axis=False,
                   text=False,
                   output=False):
     
     #显示找到的内容
     background_rgb=img_rgb[0,0]
     img_temp=np.full(np.shape(img_rgb),background_rgb)
-    
-    #在图中显示
-    plt.figure()
     
     #赋予目标对象的位置
     for this_fraction in fractions:

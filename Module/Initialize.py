@@ -43,14 +43,14 @@ def LoadImage(load_path,
 def AddPadding(img_rgb,
                rgb_dict,
                show=False,
-               axis=True,
+               axis=False,
                fault_exist=False):
     
     #新的img_rgb
     temp_img_rgb=cp.deepcopy(img_rgb)
     
     #默认为长宽的20%
-    m_row,n_column=int(np.shape(img_rgb)[0]/5),int(np.shape(img_rgb)[1]/5)
+    m_row,n_column=int(np.shape(img_rgb)[0]/3),int(np.shape(img_rgb)[1]/3)
     
 #    print(m_row,n_column)
     

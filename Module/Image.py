@@ -94,3 +94,25 @@ def GetBaseTag(img_tag):
     
     #取中间值
     return img_tag[i,int(np.shape(img_tag)[1]/2)]
+
+#==============================================================================  
+#boundary rectangular boundary
+def BoundaryImg(which_fraction,img_rgb):
+    
+    I=[this_pos[0] for this_pos in which_fraction.edge]
+    J=[this_pos[1] for this_pos in which_fraction.edge]
+    
+    #maximum and minimum of I,J 
+    #the first layer
+    img_rgb[min(I):max(I)+1,max(J)]=np.array([0,0,0],dtype=np.uint8)
+    img_rgb[min(I):max(I)+1,min(J)]=np.array([0,0,0],dtype=np.uint8)  
+    img_rgb[min(I),min(J):max(J)+1]=np.array([0,0,0],dtype=np.uint8)
+    img_rgb[max(I),min(J):max(J)+1]=np.array([0,0,0],dtype=np.uint8)
+    
+    #the second layer
+    img_rgb[min(I)-1:max(I)+2,max(J)+1]=np.array([0,0,0],dtype=np.uint8)
+    img_rgb[min(I)-1:max(I)+2,min(J)-1]=np.array([0,0,0],dtype=np.uint8)  
+    img_rgb[min(I)-1,min(J)-1:max(J)+2]=np.array([0,0,0],dtype=np.uint8)
+    img_rgb[max(I)+1,min(J)-1:max(J)+2]=np.array([0,0,0],dtype=np.uint8)
+    
+    return img_rgb

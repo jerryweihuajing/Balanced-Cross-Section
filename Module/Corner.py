@@ -541,13 +541,13 @@ def GetCorners(which_content,offset,energy_mode,img_tag,img_rgb,show=False):
 
 #============================================================================== 
 #暴力增加Corners，从图中获取
-def AddCorners(which_layer,total_fractions,corner_amount,img_rgb,show=False):
+def AddCorners(which_layer,corner_amount,img_rgb,show=False):
     
     #从边界中寻找
     which_content=which_layer.edge
     
     #包围layer的faults
-    border_faults=Pick.BorderFaults(which_layer,total_fractions)
+#    border_faults=Pick.BorderFaults(which_layer,total_fractions)
     
     #结果的集合
     corner_points=[]
@@ -567,28 +567,26 @@ def AddCorners(which_layer,total_fractions,corner_amount,img_rgb,show=False):
     #索引列表
     corner_index=[which_content.index(corner_point) for corner_point in corner_points]
     
-    #根据border_faults把点投上来
-    #先找最近的fault
-    for this_corner_point in corner_points:
-        
-        #这个点到两个fault的距离列表
-        faults_centers=[this_fault.center for this_fault in border_faults]
-        
-        #计算距离最短的点作为角点
-        #该点到fault们的距离列表
-        distances_faults=Geom.Distances(this_corner_point,faults_centers)
-        
-        #建立映射关系
-        map_distances_faults=dict(zip(distances_faults,border_faults))
-        
-        #距离最小的fault是最邻近的
-        fault_near_this_corner_point=map_distances_faults[min(distances_faults)]
-        
-        #
-        this_corner_point
-    
-    
-    
+#    #根据border_faults把点投上来
+#    #先找最近的fault
+#    for this_corner_point in corner_points:
+#        
+#        #这个点到两个fault的距离列表
+#        faults_centers=[this_fault.center for this_fault in border_faults]
+#        
+#        #计算距离最短的点作为角点
+#        #该点到fault们的距离列表
+#        distances_faults=Geom.Distances(this_corner_point,faults_centers)
+#        
+#        #建立映射关系
+#        map_distances_faults=dict(zip(distances_faults,border_faults))
+#        
+#        #距离最小的fault是最邻近的
+#        fault_near_this_corner_point=map_distances_faults[min(distances_faults)]
+#        
+#        #
+#        this_corner_point
+      
     #显示吧
     if show:
             
