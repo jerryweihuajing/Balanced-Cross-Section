@@ -33,13 +33,13 @@ from Module import Recover as Rec
 #导入图片，生成rgb数组
 #load_path=r'C:\Users\whj\Desktop\Spyder\例\offset_model.bmp'
 #load_path=r'C:\Users\whj\Desktop\Spyder\例\挤压.bmp'
-load_path=r'C:\Users\whj\Desktop\Spyder\例\fault.bmp'
+#load_path=r'C:\魏华敬\Spyder\balanced cross-section\Data\input\fault.bmp'
 #load_path=r'C:\Users\whj\Desktop\Spyder\例\simple.bmp'
 #load_path=r'C:\Users\whj\Desktop\Spyder\例\Corner.bmp'
-
-save_path=r'C:\Users\whj\Desktop\bcs'
-
-Rec.SeriesRecover(load_path,save_path)
+load_path=r'C:\魏华敬\Spyder\3D model\Data\1.bmp'
+#save_path=r'C:\Users\whj\Desktop\bcs'
+#
+#Rec.SeriesRecover(load_path,save_path)
 
 
 #导入图片，生成rgb矩阵
@@ -53,7 +53,7 @@ rgb_dict=Init.InitDict(img_rgb,base_adjust=True,fault_exist=True)
 img_tag,img_rgb=Init.AddPadding(img_rgb,rgb_dict,show=True)
 
 #初始化fractions，并显示
-total_fractions=Pick.PickFractions(img_rgb,img_tag,rgb_dict)  
+#total_fractions=Pick.PickFractions(img_rgb,img_tag,rgb_dict)  
 
 #'''解决layer内的有fault情况的恢复'''
 #
